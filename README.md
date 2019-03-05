@@ -7,7 +7,7 @@ This is a simple module to normalize an objects keys. It will create a _new_ obj
   `normalizeKeys` - takes an object and producse a new object with the keys/properties normalized to the desired format; by default camel case.
 
   - `{Object} obj`  - the object to normalize
-  - `{Function} formatter` - a formatter function, by default `lodash.camelcase`
+  - `{Function} normalizer` - a formatter function, by default `lodash.camelcase`
   - `{Array} skipKeys` - an array of keys to skip from the resulting object
 
 ### Example:
@@ -15,7 +15,7 @@ This is a simple module to normalize an objects keys. It will create a _new_ obj
 ```js
 const normalizeKeys = require('normalize-keys')
 
-const formatter = (key) => {
+const normalizer = (key) => {
   // camel case formatter....
 }
 

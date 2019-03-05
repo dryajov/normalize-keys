@@ -10,13 +10,13 @@ const isPlainObject = require('lodash.isplainobject')
  * default camel case
  *
  * @param {Object} obj - the object to normalize
- * @param {*} formatter - a formatter function, by default `camelcase`
+ * @param {*} normalizer - a formatter function, by default `camelcase`
  * @param {*} skipKeys - an array of keys to skip from the resulting object
  */
-const normalizeKeys = (obj, formatter = camelCase, skipKeys = []) => {
-  if (typeof formatter !== 'function') {
-    skipKeys = formatter
-    formatter = camelCase
+const normalizeKeys = (obj, normalizer = camelCase, skipKeys = []) => {
+  if (typeof normalizer !== 'function') {
+    skipKeys = normalizer
+    normalizer = camelCase
   }
 
   return transform(obj, (result, value, key) => {
@@ -26,7 +26,7 @@ const normalizeKeys = (obj, formatter = camelCase, skipKeys = []) => {
     }
 
     if (key.indexOf('-') > 0) {
-      key = formatter(key)
+      key = normalizer(key)
     }
     result[key] = value
   }, {})
