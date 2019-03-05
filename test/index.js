@@ -63,3 +63,26 @@ test('skip keys', (t) => {
 
   t.end()
 })
+
+test('all together', (t) => {
+  const Obj1 = {
+    'my-key-1': 'I am key #1',
+    'my-key-2': 'I am key #2',
+    'my-key-3': 'I am key #3',
+    'my-key-4': 'I am key #4'
+  }
+
+  const normalizer = (key) => {
+    return key.replace(/-/gi, '.')
+  }
+
+  const Obj2 = normalizeKeys(Obj1, normalizer, ['my-key-1'])
+
+  t.deepEqual(Obj2, {
+    'my.key.2': 'I am key #2',
+    'my.key.3': 'I am key #3',
+    'my.key.4': 'I am key #4'
+  })
+
+  t.end()
+})

@@ -1,4 +1,4 @@
-# Normalize an objects keys
+# Normalize an object's keys
 
 This is a simple module to normalize an objects keys. It will create a _new_ object, it will never mutate the original object.
 
