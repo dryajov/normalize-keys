@@ -1,6 +1,6 @@
 {
   "name": "normalize-keys",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Normalize object keys",
   "main": "src/index.js",
   "scripts": {
