@@ -86,3 +86,23 @@ test('all together', (t) => {
 
   t.end()
 })
+
+test('should not break normalized', (t) => {
+  const Obj1 = {
+    'myKey1': 'I am key #1',
+    'myKey2': 'I am key #2',
+    'myKey3': 'I am key #3',
+    'myKey4': 'I am key #4'
+  }
+
+  const Obj2 = normalizeKeys(Obj1)
+
+  t.deepEqual(Obj2, {
+    'myKey1': 'I am key #1',
+    'myKey2': 'I am key #2',
+    'myKey3': 'I am key #3',
+    'myKey4': 'I am key #4'
+  })
+
+  t.end()
+})
